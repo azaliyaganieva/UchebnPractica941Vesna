@@ -1,0 +1,23 @@
+﻿<Window x:Class="UchebnPractica941Vesna.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UchebnPractica941Vesna"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="#D2DFFF"/>
+        <Image Source="/Images/Комфорт.png" HorizontalAlignment="Left"/>
+        <TextBlock x:Name="TitleTb" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="32" FontWeight="Bold" FontFamily="Candara">
+            Комфорт
+        </TextBlock>
+
+        <Frame Grid.Row="1" x:Name="MainFrame" NavigationUIVisibility="Hidden"></Frame>
+    </Grid>
+</Window>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="67ad466c947d4a3b825cf67afab7191a" Name="Diagram1">
+        <EntityTypeShape EntityType="ComfortModel.DiscountPartners" Width="1.5" PointX="6" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.Employee" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.FamilyStatus" Width="1.5" PointX="1.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.Health" Width="1.5" PointX="1.5" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.Logins" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.Partners" Width="1.5" PointX="3.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.Products" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.ProductsMaterial" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.ProductType" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.ProductWorkshop" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.Request" Width="1.5" PointX="3" PointY="32.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.RequestDetails" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.Role" Width="1.5" PointX="1.5" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.SaleHistory" Width="1.5" PointX="8.25" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.SalePoint" Width="1.5" PointX="6" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.SizeUpakovka" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.Status" Width="1.5" PointX="0.75" PointY="33" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.TypeMaterial" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.TypeOfBusiness" Width="1.5" PointX="1.5" PointY="28" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.TypeWorkshop" Width="1.5" PointX="0.75" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ComfortModel.Workshop" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <AssociationConnector Association="ComfortModel.FK_DiscountPartners_Partners" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_Employee_FamilyStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_Employee_Health" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_Employee_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_Logins_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_Request_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_Workshop_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_Partners_TypeOfBusiness" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_Request_Partners" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_SalePoint_Partners" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_Products_ProductType" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_Products_SizeUpakovka" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_ProductsMaterial_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_ProductWorkshop_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_RequestDetails_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_SaleHistory_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_ProductsMaterial_TypeMaterial" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_ProductWorkshop_Workshop" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_Request_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_RequestDetails_Request" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_SaleHistory_SalePoint" ManuallyRouted="false" />
+        <AssociationConnector Association="ComfortModel.FK_Workshop_TypeWorkshop" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
