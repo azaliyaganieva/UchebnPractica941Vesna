@@ -107,12 +107,7 @@ namespace UchebnPractica941Vesna.Pages
                 return;
             }
 
-            var result = MessageBox.Show($"Вы уверены, что хотите удалить партнера \"{selPartner.NamePartner}\"?\n\n" +
-                "ВНИМАНИЕ! Будут удалены все связанные данные:\n" +
-                "- Точки продаж\n" +
-                "- История продаж\n" +
-                "- Заявки и детали заявок\n" +
-                "- Скидки партнера",
+            var result = MessageBox.Show($"Вы уверены, что хотите удалить партнера \"{selPartner.NamePartner}\"?\n\n",
                 "Подтверждение удаления",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question);
