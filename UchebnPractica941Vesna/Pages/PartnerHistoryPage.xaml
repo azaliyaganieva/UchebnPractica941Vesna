@@ -100,6 +100,7 @@
                                                 DisplayMemberBinding="{Binding Quantity}"/>
                                 <GridViewColumn Header="Сумма" Width="100" 
                                                 DisplayMemberBinding="{Binding Amount, StringFormat={}{0:N0} ₽}"/>
+                                
                                 <GridViewColumn Header="Точка продажи" Width="150" 
                                                 DisplayMemberBinding="{Binding SalePointName}"/>
                             </GridView>
