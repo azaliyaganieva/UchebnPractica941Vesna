@@ -37,7 +37,7 @@ namespace UchebnPractica941Vesna.Pages
 
             var filteredPartners = allPartners.AsEnumerable();
 
-           
+            
             if (!string.IsNullOrWhiteSpace(SearchBox.Text))
             {
                 string searchText = SearchBox.Text.ToLower();
@@ -51,21 +51,20 @@ namespace UchebnPractica941Vesna.Pages
             }
 
            
-            if (SortCombo.SelectedIndex == 0) 
+            if (SortCombo.SelectedIndex == 0)
                 filteredPartners = filteredPartners.OrderBy(p => p.NamePartner);
-            else if (SortCombo.SelectedIndex == 1) 
+            else if (SortCombo.SelectedIndex == 1)
                 filteredPartners = filteredPartners.OrderByDescending(p => p.NamePartner);
-            else if (SortCombo.SelectedIndex == 2) 
+            else if (SortCombo.SelectedIndex == 2)
                 filteredPartners = filteredPartners.OrderBy(p => p.Raiting);
-            else if (SortCombo.SelectedIndex == 3) 
+            else if (SortCombo.SelectedIndex == 3)
                 filteredPartners = filteredPartners.OrderByDescending(p => p.Raiting);
-            else if (SortCombo.SelectedIndex == 4) 
+            else if (SortCombo.SelectedIndex == 4)
                 filteredPartners = filteredPartners.OrderBy(p => p.SizeDiscount);
-            else if (SortCombo.SelectedIndex == 5) 
+            else if (SortCombo.SelectedIndex == 5)
                 filteredPartners = filteredPartners.OrderByDescending(p => p.SizeDiscount);
 
             PatnersLW.ItemsSource = filteredPartners.ToList();
-           
         }
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -95,6 +94,59 @@ namespace UchebnPractica941Vesna.Pages
                 MessageBox.Show("Выберите партнера для редактирования!", "Внимание",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+
+ 
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selPartner = PatnersLW.SelectedItem as Partners;
+            if (selPartner == null)
+            {
+                MessageBox.Show("Выберите партнера для удаления!", "Внимание",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            var result = MessageBox.Show($"Вы уверены, что хотите удалить партнера \"{selPartner.NamePartner}\"?\n\n" +
+                "ВНИМАНИЕ! Будут удалены все связанные данные:\n" +
+                "- Точки продаж\n" +
+                "- История продаж\n" +
+                "- Заявки и детали заявок\n" +
+                "- Скидки партнера",
+                "Подтверждение удаления",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    Connection.comfort.Partners.Remove(selPartner);
+                    Connection.comfort.SaveChanges();
+                    MessageBox.Show("Партнер успешно удален!", "Успех",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                    LoadPartners(); 
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при удалении: {ex.Message}", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+
+        private void HistoryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var selPartner = PatnersLW.SelectedItem as Partners;
+            if (selPartner == null)
+            {
+                MessageBox.Show("Выберите партнера для просмотра истории продаж!", "Внимание",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            NavigationService.Navigate(new PartnerHistoryPage(selPartner));
         }
 
         private void RefreshBtn_Click(object sender, RoutedEventArgs e)

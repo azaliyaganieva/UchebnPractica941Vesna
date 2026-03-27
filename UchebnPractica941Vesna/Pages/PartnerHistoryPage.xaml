@@ -1,0 +1,124 @@
+﻿<Page x:Class="UchebnPractica941Vesna.Pages.PartnerHistoryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" d:DesignWidth="900"
+      Title="PartnerHistoryPage"
+      ScrollViewer.VerticalScrollBarVisibility="Auto" Height="581">
+
+    <Grid Background="#F5F5F5" Margin="0,0,0,-17">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="850"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="1" Background="White" CornerRadius="8" 
+                Margin="20,15,20,10" Padding="15" BorderBrush="#DDD" BorderThickness="1">
+            <StackPanel>
+                <TextBlock Text="История продаж" FontSize="18" FontWeight="Bold" 
+                           Foreground="#355CBD" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Партнер:" FontWeight="Bold" FontSize="12" Margin="0,3"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" x:Name="PartnerNameTb" FontSize="12" Margin="10,3"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Тип бизнеса:" FontWeight="Bold" FontSize="12" Margin="0,3"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" x:Name="BusinessTypeTb" FontSize="12" Margin="10,3"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Директор:" FontWeight="Bold" FontSize="12" Margin="0,3"/>
+                    <TextBlock Grid.Row="2" Grid.Column="1" x:Name="DirectorTb" FontSize="12" Margin="10,3" TextWrapping="Wrap"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Рейтинг:" FontWeight="Bold" FontSize="12" Margin="0,3"/>
+                    <TextBlock Grid.Row="3" Grid.Column="1" x:Name="RatingTb" FontSize="12" Margin="10,3"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="1" Background="White" CornerRadius="8" 
+                Margin="20,0,20,10" Padding="15" BorderBrush="#DDD" BorderThickness="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" HorizontalAlignment="Center">
+                    <TextBlock Text="Всего продаж" Foreground="#666" FontSize="11"/>
+                    <TextBlock x:Name="TotalSalesCountTb" FontSize="18" FontWeight="Bold" 
+                               Foreground="#355CBD" HorizontalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                    <TextBlock Text="Общая сумма" Foreground="#666" FontSize="11"/>
+                    <TextBlock x:Name="TotalAmountTb" FontSize="18" FontWeight="Bold" 
+                               Foreground="#355CBD" HorizontalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" HorizontalAlignment="Center">
+                    <TextBlock Text="Текущая скидка" Foreground="#666" FontSize="11"/>
+                    <TextBlock x:Name="DiscountTb" FontSize="18" FontWeight="Bold" 
+                               Foreground="#355CBD" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2" Grid.Column="1" Background="White" CornerRadius="8" 
+                Margin="20,0,20,15" Padding="15" BorderBrush="#DDD" BorderThickness="1">
+            <StackPanel>
+                <TextBlock Text="Список реализованной продукции" FontSize="14" FontWeight="Bold" 
+                           Foreground="#355CBD" Margin="0,0,0,10"/>
+
+                <ScrollViewer Height="350" VerticalScrollBarVisibility="Auto">
+                    <ListView x:Name="SalesListView" FontSize="11">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Дата продажи" Width="140" 
+                                                DisplayMemberBinding="{Binding SaleDate, StringFormat={}{0:dd.MM.yyyy}}"/>
+                                <GridViewColumn Header="Наименование продукции" Width="280" 
+                                                DisplayMemberBinding="{Binding ProductName}"/>
+                                <GridViewColumn Header="Кол-во" Width="70" 
+                                                DisplayMemberBinding="{Binding Quantity}"/>
+                                <GridViewColumn Header="Сумма" Width="100" 
+                                                DisplayMemberBinding="{Binding Amount, StringFormat={}{0:N0} ₽}"/>
+                                <GridViewColumn Header="Точка продажи" Width="150" 
+                                                DisplayMemberBinding="{Binding SalePointName}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+
+                <TextBlock x:Name="EmptyMessage" Text="Нет данных о продажах" 
+                           Foreground="#666" FontSize="12" 
+                           HorizontalAlignment="Center" Margin="0,20" Visibility="Collapsed"/>
+            </StackPanel>
+        </Border>
+
+
+        <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Margin="20,0,20,15">
+            <Button x:Name="BackBtn" Click="BackBtn_Click" 
+                    Background="#355CBD" Foreground="White" 
+                    Content="Назад к списку партнеров" FontSize="12" 
+                    Width="267" Height="57" Padding="5"/>
+        </StackPanel>
+    </Grid>
+</Page>

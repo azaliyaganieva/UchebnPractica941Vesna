@@ -76,6 +76,8 @@
         <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Center" Margin="10">
             <Button x:Name="AddBtn" Click="AddBtn_Click" Width="100" Height="35" Margin="5">Добавить</Button>
             <Button x:Name="EditBtn" Click="EditBtn_Click" Width="100" Height="35" Margin="5">Изменить</Button>
+            <Button x:Name="DeleteBtn" Click="DeleteBtn_Click" Width="100" Height="35" Margin="5" Background="#FF6B6B" Foreground="White">Удалить</Button>
+            <Button x:Name="HistoryBtn" Click="HistoryBtn_Click" Width="163" Height="35" Margin="5">История продаж</Button>
             <Button x:Name="RefreshBtn" Click="RefreshBtn_Click" Width="100" Height="35" Margin="5">Обновить</Button>
         </StackPanel>
     </Grid>

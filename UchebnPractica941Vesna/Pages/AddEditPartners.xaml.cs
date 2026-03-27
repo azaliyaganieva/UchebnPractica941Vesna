@@ -49,7 +49,7 @@ namespace UchebnPractica941Vesna.Pages
 
         private void OtmenaBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new PartnersListPage());
         }
     }
 }
